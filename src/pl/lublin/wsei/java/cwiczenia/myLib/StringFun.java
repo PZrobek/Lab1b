@@ -16,4 +16,19 @@ public class StringFun {
         }
         return sb.toString();
     }
+
+    public static String camelize(String str) {
+        char[] cPhrase = str.toCharArray();
+        for (int i = 0; i < cPhrase.length; i++) {
+            if (i == 0 && Character.isUpperCase(cPhrase[i])) {
+                cPhrase[i] = Character.toLowerCase(cPhrase[i]);
+            }
+            if (cPhrase[i] == ' ' && cPhrase.length != i + 1) {
+                cPhrase[i + 1] = Character.toUpperCase(cPhrase[i + 1]);
+            }
+        }
+        String cPhraseString = new String(cPhrase);
+        cPhraseString = cPhraseString.replace(" ", "");
+        return cPhraseString;
+    }
 }
